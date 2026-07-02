@@ -1,4 +1,4 @@
-export interface LocationDto {
+export interface LocationCardDto {
     id: number;
     name: string;
     city: string;

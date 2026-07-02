@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { LocationDto as LocationCardDto } from '../models/location-card.dto';
+import { LocationCardDto as LocationCardDto } from '../models/location-card.dto';
 
 @Component({
   selector: 'app-location-card',

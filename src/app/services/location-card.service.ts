@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { LocationDto } from '../models/location-card.dto';
+import { LocationCardDto } from '../models/location-card.dto';
 
 
 @Injectable({
   providedIn: 'root',
 })
-export class LocationService {
+export class LocationCardService {
   readonly baseUrl = 'https://angular.dev/assets/images/tutorials/common';
 
-  locationList: LocationDto[] = [
+  locationList: LocationCardDto[] = [
     {
       id: 0,
       name: 'Acme Fresh Start Housing',
@@ -111,11 +111,11 @@ export class LocationService {
     },
   ];
 
-  getHousingLocationById(id: number): LocationDto | undefined {
+  getLocationById(id: number): LocationCardDto | undefined {
     return this.locationList.find((x) => x.id === id);
   }
 
-  getAllHousingLocations(): LocationDto[] {
+  getAllLocations(): LocationCardDto[] {
     return this.locationList;
   }
 
