@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Location } from "../location/location";
+import { LocationService } from "../services/location.service";
+import { LocationDto } from '../models/locaton.dto';
 
 @Component({
   selector: 'app-home',
-  imports: [],
-  template: `
-    <section>
-      <form>
-        <input type="text" placeholder="Filter by city" />
-        <button class="primary" type="button">Search</button>
-      </form>
-    </section>
-  `,
+  imports: [Location],
+  templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home { }
+export class Home {
+  locationList: LocationDto[] = [];
+  locationSercice: LocationService = inject(LocationService);
+  constructor() {
+    this.locationList = this.locationSercice.getAllHousingLocations();
+  }
+}
