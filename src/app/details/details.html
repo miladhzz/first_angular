@@ -1,0 +1,16 @@
+<article>
+    <img class="listing-photo" [src]="locationCard?.photo" alt="Exterior photo of {{ locationCard?.name }}"
+        crossorigin />
+    <section class="listing-description">
+        <h2 class="listing-heading">{{ locationCard?.name }}</h2>
+        <p class="listing-location">{{ locationCard?.city }}, {{ locationCard?.state }}</p>
+    </section>
+    <section class="listing-features">
+        <h2 class="section-heading">About this housing location</h2>
+        <ul>
+            <li>Units available: {{ locationCard?.availableUnits }}</li>
+            <li>Does this location have wifi: {{ locationCard?.wifi }}</li>
+            <li>Does this location have laundry: {{ locationCard?.laundry }}</li>
+        </ul>
+    </section>
+</article>
