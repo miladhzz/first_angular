@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
-import { Location } from "../location/location";
-import { LocationService } from "../services/location.service";
-import { LocationDto } from '../models/locaton.dto';
+import { LocationCard } from "../location-card/location-card";
+import { LocationService } from "../services/location-card.service";
+import { LocationDto } from '../models/location-card.dto';
 
 @Component({
   selector: 'app-home',
-  imports: [Location],
+  imports: [LocationCard],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

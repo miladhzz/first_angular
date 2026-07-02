@@ -6,7 +6,7 @@
     </form>
 </section>
 <section class="results">
-    @for (location of locationList; track $index) {
-    <app-location [location]="location" />
+    @for (locationCard of locationList; track $index) {
+    <app-location-card [locationCard]="locationCard" />
     }
 </section>

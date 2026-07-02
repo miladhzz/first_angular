@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LocationDto } from '../models/locaton.dto';
+import { LocationDto } from '../models/location-card.dto';
 
 
 @Injectable({
