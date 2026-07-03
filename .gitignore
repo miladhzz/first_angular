@@ -42,3 +42,41 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+*.tmp
+~$*
+
+# Python / Django
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+.eggs/
+dist-python/
+*.egg
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Django
+*.sqlite3
+db.sqlite3
+api/db.sqlite3
+*.log
+local_settings.py
+staticfiles/
+media/
+
+# Environment variables
+.env
+.env.*
+!.env.example
