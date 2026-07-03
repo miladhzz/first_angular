@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { LocationCardDto } from '../models/location-card.dto';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../envirenments/envirenment';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class LocationCardService {
