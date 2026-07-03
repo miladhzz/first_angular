@@ -5,17 +5,18 @@
     </form>
 </section>
 <section class="results">
-    @if (loading)
+    @if (loading())
     {
     <p>Loading...</p>
     }
-    @else if (error)
+    @else if (error())
     {
-    <p>{{ error }}</p>
+    <p>{{ error() }}</p>
     }
     @else
     {
-    @for (locationCard of locationList; track locationCard.id)
+    <p>dads</p>
+    @for (locationCard of locationList(); track locationCard.id)
     {
     <app-location-card [locationCard]="locationCard" />
     }
