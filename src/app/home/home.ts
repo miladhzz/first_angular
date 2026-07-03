@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit  } from '@angular/core';
 import { LocationCard } from "../location-card/location-card";
 import { LocationCardService } from "../services/location-card.service";
 import { LocationCardDto } from '../models/location-card.dto';
@@ -9,10 +9,21 @@ import { LocationCardDto } from '../models/location-card.dto';
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {
+export class Home implements OnInit {
   locationList: LocationCardDto[] = [];
-  locationCardSercice: LocationCardService = inject(LocationCardService);
-  constructor() {
-    this.locationList = this.locationCardSercice.getAllLocations();
+  loading = true;
+  error = '';
+  private locationCardService = inject(LocationCardService);
+  ngOnInit(): void {
+    this.locationCardService.getAllLocations().subscribe({
+      next: (data) => {
+        this.locationList = data;
+        this.loading = false;
+      },
+      error: () => {
+        this.error = 'Failed to load locations';
+        this.loading = false;
+      },
+    });
   }
 }

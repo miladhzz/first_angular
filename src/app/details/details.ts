@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LocationCardService } from '../services/location-card.service';
 import { LocationCardDto } from '../models/location-card.dto';
@@ -10,11 +10,12 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './details.html',
   styleUrl: './details.scss',
 })
-export class Details {
+export class Details implements OnInit {
 
   route: ActivatedRoute = inject(ActivatedRoute);
   locationCardService = inject(LocationCardService);
   locationCard: LocationCardDto | undefined;
+  error = '';
 
   applyForm = new FormGroup({
     firstName: new FormControl(''),
@@ -22,17 +23,25 @@ export class Details {
     email: new FormControl(''),
   });
 
-  constructor() {
-    const locationcardId = Number(this.route.snapshot.params['id']);
-    this.locationCard = this.locationCardService.getLocationById(locationcardId);
+  ngOnInit(): void {
+    const id = Number(this.route.snapshot.params['id']);
+    this.locationCardService.getLocationById(id).subscribe({
+      next: (data) => (this.locationCard = data),
+      error: () => (this.error = 'Location not found'),
+    });
   }
 
-  submitApplication() {
-    this.locationCardService.submitApplication(
-      this.applyForm.value.firstName ?? '',
-      this.applyForm.value.lastName ?? '',
-      this.applyForm.value.email ?? '',
-    );
+  submitApplication(): void {
+    this.locationCardService
+      .submitLocation(
+        this.applyForm.value.firstName ?? '',
+        this.applyForm.value.lastName ?? '',
+        this.applyForm.value.email ?? '',
+      )
+      .subscribe({
+        next: () => alert('Application submitted'),
+        error: () => alert('Submission failed'),
+      });
   }
 
 }

@@ -5,7 +5,19 @@
     </form>
 </section>
 <section class="results">
-    @for (locationCard of locationList; track $index) {
+    @if (loading)
+    {
+    <p>Loading...</p>
+    }
+    @else if (error)
+    {
+    <p>{{ error }}</p>
+    }
+    @else
+    {
+    @for (locationCard of locationList; track locationCard.id)
+    {
     <app-location-card [locationCard]="locationCard" />
+    }
     }
 </section>
