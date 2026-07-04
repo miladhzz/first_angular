@@ -6,6 +6,7 @@ import {
   UploadProgress,
   UploadProgressStatus,
 } from '../upload-progress/upload-progress';
+import { UploadService } from '../../services/upload.service';
 
 @Component({
   selector: 'app-image-upload',
@@ -15,7 +16,7 @@ import {
   styleUrl: './image-upload.scss',
 })
 export class ImageUpload {
-  private locationService = inject(LocationService);
+  private uploadService = inject(UploadService);
   private uploadSubscription: Subscription | null = null;
 
   photoUploaded = output<PhotoUploadResponse>();
@@ -72,7 +73,7 @@ export class ImageUpload {
   }
 
   private startUpload(file: File): void {
-    this.uploadSubscription = this.locationService
+    this.uploadService
       .uploadPhoto(file)
       .pipe(filter((update) => update !== null))
       .subscribe({
