@@ -1,0 +1,25 @@
+.image-upload {
+  &__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  &__preview {
+    margin-top: 1rem;
+
+    img {
+      border-radius: 8px;
+      object-fit: cover;
+    }
+  }
+}

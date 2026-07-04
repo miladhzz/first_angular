@@ -3,6 +3,7 @@ import { Home } from './home/home';
 import { About } from './about/about';
 import { Details } from './details/details';
 import { LocationCreate } from './location-create/location-create';
+import { UploadAsync } from './upload-async/upload-async';
 
 const routeConfig: Routes = [
     {
@@ -24,6 +25,11 @@ const routeConfig: Routes = [
         path: 'locations/create',
         component: LocationCreate,
         title: 'Location Create',
+    },
+    {
+        path: 'locations/upload-async',
+        component: UploadAsync,
+        title: 'Async Upload',
     },
 ];
 

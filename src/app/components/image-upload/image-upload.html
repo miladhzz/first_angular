@@ -1,0 +1,14 @@
+<div class="image-upload">
+  <label class="image-upload__label" for="photo-input">عکس</label>
+
+  <input id="photo-input" type="file" class="image-upload__input" accept="image/*"
+    (change)="onFileSelected($event)" />
+
+  @if (previewUrl()) {
+  <div class="image-upload__preview">
+    <img [src]="previewUrl()" alt="Preview" width="200" />
+  </div>
+  }
+
+  <app-upload-progress [progress]="uploadProgress()" [status]="uploadStatus()" [errorMessage]="uploadError()" />
+</div>

@@ -1,0 +1,22 @@
+@if (status() !== 'idle') {
+<div class="upload-progress" [class.upload-progress--success]="status() === 'success'"
+  [class.upload-progress--error]="status() === 'error'">
+  <div class="upload-progress__bar">
+    <div class="upload-progress__fill" [style.width.%]="progress()"></div>
+  </div>
+
+  <p class="upload-progress__label">
+    @switch (status()) {
+    @case ('uploading') {
+    در حال آپلود… {{ progress() }}٪
+    }
+    @case ('success') {
+    آپلود با موفقیت انجام شد
+    }
+    @case ('error') {
+    {{ errorMessage() ?? 'خطا در آپلود عکس.' }}
+    }
+    }
+  </p>
+</div>
+}

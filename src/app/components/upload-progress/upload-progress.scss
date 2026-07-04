@@ -1,0 +1,38 @@
+.upload-progress {
+  margin-top: 0.75rem;
+
+  &__bar {
+    height: 8px;
+    border-radius: 4px;
+    background: var(--shadow-color, #e8e8e8);
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    background: var(--primary-color, #605dc8);
+    transition: width 0.2s ease;
+  }
+
+  &--success &__fill {
+    background: #2e7d32;
+  }
+
+  &--error &__fill {
+    background: #c62828;
+  }
+
+  &__label {
+    margin: 0.5rem 0 0;
+    font-size: 0.875rem;
+    color: #444;
+  }
+
+  &--success &__label {
+    color: #2e7d32;
+  }
+
+  &--error &__label {
+    color: #c62828;
+  }
+}

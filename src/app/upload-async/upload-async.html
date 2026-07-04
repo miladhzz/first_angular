@@ -1,0 +1,81 @@
+<div class="upload-async">
+  <h2>ایجاد لوکیشن (آپلود غیرهمزمان)</h2>
+
+  <form [formGroup]="locationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">نام</label>
+      <input id="name" type="text" class="form-control" formControlName="name" />
+
+      @if (locationForm.controls.name.invalid && locationForm.controls.name.touched) {
+      <div class="error-message">نام الزامی است.</div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="city">شهر</label>
+      <input id="city" type="text" class="form-control" formControlName="city" />
+
+      @if (locationForm.controls.city.invalid && locationForm.controls.city.touched) {
+      <div class="error-message">شهر الزامی است.</div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="state">استان</label>
+      <input id="state" type="text" class="form-control" formControlName="state" />
+
+      @if (locationForm.controls.state.invalid && locationForm.controls.state.touched) {
+      <div class="error-message">استان الزامی است.</div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="available_units">تعداد واحدهای موجود</label>
+      <input id="available_units" type="number" class="form-control" formControlName="available_units" />
+
+      @if (
+        locationForm.controls.available_units.invalid &&
+        locationForm.controls.available_units.touched
+      ) {
+      <div class="error-message">مقدار باید حداقل ۱ باشد.</div>
+      }
+    </div>
+
+    <div class="form-group checkbox-group">
+      <label>
+        <input type="checkbox" formControlName="wifi" />
+        وای‌فای
+      </label>
+    </div>
+
+    <div class="form-group checkbox-group">
+      <label>
+        <input type="checkbox" formControlName="laundry" />
+        لباسشویی
+      </label>
+    </div>
+
+    <div class="form-group">
+      <app-image-upload
+        (photoUploaded)="onPhotoUploaded($event)"
+        (uploadReset)="onPhotoUploadReset()"
+      />
+
+      @if (!uploadedPhotoPath() && locationForm.touched) {
+      <div class="error-message">ابتدا عکس را آپلود کنید.</div>
+      }
+    </div>
+
+    @if (saveError()) {
+    <div class="error-message save-error">{{ saveError() }}</div>
+    }
+
+    <button type="submit" class="submit-button" [disabled]="!canSave()">
+      @if (saving()) {
+      در حال ذخیره…
+      } @else {
+      ذخیره
+      }
+    </button>
+  </form>
+</div>
