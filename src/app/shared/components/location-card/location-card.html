@@ -1,0 +1,7 @@
+<section class="listing">
+    <img class="listing-photo" [src]="locationCard().photo" alt="Exterior photo of {{ locationCard().name }}"
+        crossorigin />
+    <a [routerLink]="['/details', locationCard().id]">Learn More</a>
+    <h2 class="listing-heading">{{ locationCard().name }}</h2>
+    <p class="listing-location">{{ locationCard().city }}, {{ locationCard().state }}</p>
+</section>

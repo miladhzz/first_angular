@@ -1,0 +1,23 @@
+<section>
+    <form>
+        <input type="text" placeholder="Filter by city" />
+        <button class="primary" type="button">Search</button>
+    </form>
+</section>
+<section class="results">
+    @if (loading())
+    {
+    <p>Loading...</p>
+    }
+    @else if (error())
+    {
+    <p>{{ error() }}</p>
+    }
+    @else
+    {
+    @for (locationCard of locationList(); track locationCard.id)
+    {
+    <app-location-card [locationCard]="locationCard" />
+    }
+    }
+</section>
