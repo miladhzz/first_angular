@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-import { LocationCard } from '@core/models/location-card.model';
+import { LocationCard } from '@core/models/locations/location-card.model';
 
 @Component({
   selector: 'app-location-card',

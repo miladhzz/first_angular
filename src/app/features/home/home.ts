@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 
-import { LocationCard } from '@core/models/location-card.model';
+import { LocationCard } from '@core/models/locations/location-card.model';
 import { LocationCardService } from '@core/services/location-card.service';
 import { LocationCardComponent } from '@shared/components/location-card/location-card';
 

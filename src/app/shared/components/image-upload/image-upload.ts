@@ -1,7 +1,7 @@
 import { Component, inject, output, signal } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { PhotoUploadResponse } from '@core/models/upload.model';
+import { PhotoUploadResponse } from '@core/models/image-upload/upload.model';
 import { UploadService } from '@core/services/upload.service';
 import {
   UploadProgress,

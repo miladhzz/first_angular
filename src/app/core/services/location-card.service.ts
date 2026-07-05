@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { LocationCard } from '@core/models/location-card.model';
+import { LocationCard } from '@core/models/locations/location-card.model';
 import { environment } from '@env/environment';
 
 @Injectable({ providedIn: 'root' })
