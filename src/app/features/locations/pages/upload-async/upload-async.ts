@@ -9,7 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { map, merge, startWith } from 'rxjs';
 
-import { PhotoUploadResponse } from '@core/models/upload.model';
+import { PhotoUploadResponse } from '@core/models/image-upload/upload.model';
 import { LocationService } from '@core/services/location.service';
 import { ImageUpload } from '@shared/components/image-upload/image-upload';
 

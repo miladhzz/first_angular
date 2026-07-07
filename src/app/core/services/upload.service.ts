@@ -12,7 +12,7 @@ import {
   PhotoUploadUpdate,
   UploadCompleteUpdate,
   UploadProgressUpdate,
-} from '@core/models/upload.model';
+} from '@core/models/image-upload/upload.model';
 
 @Injectable({ providedIn: 'root' })
 export class UploadService {
