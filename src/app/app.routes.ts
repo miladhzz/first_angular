@@ -5,6 +5,7 @@ import { DetailsPage } from '@features/details/details';
 import { HomePage } from '@features/home/home';
 import { LocationCreatePage } from '@features/locations/pages/location-create/location-create';
 import { UploadAsyncPage } from '@features/locations/pages/upload-async/upload-async';
+import { LoginComponent } from '@features/login/login';
 
 export const appRoutes: Routes = [
   {
@@ -31,5 +32,10 @@ export const appRoutes: Routes = [
     path: 'locations/upload-async',
     component: UploadAsyncPage,
     title: 'Async Upload',
+  },
+  {
+    path: 'accounts/login',
+    component: LoginComponent,
+    title: 'Mobile Login',
   },
 ];
